@@ -1,84 +1,79 @@
-// task 1
-function lengthOfArray(str) {
-    return str.length;
+ // task 1
+ function lengthOfArray(str) {
+   return str.length;
 }
 
-console.log(lengthOfArray("Hello world"));
+ console.log(lengthOfArray("Hello world"));
 
 
-// task 2
-function toUpperCase(str) {
-    return str.toUpperCase("hello world");
-}
+//  task 2
+ function upperCase(str) {
+     return str.toUpperCase();
+ }
 
-console.log(toUpperCase("hello world"));
+ console.log(upperCase("hello world"));
 
-// task 3
-const sumOfNums = (a, b) => {return a + b;}
-console.log(sumOfNums(7, 9))
+ // task 3
+ const sumOfNums = (a, b) => {return a + b;}
+ console.log(sumOfNums(7, 9))
 
-// task 4
-function reverseString(str) {
-    let result = "";
+ // task 4
+ function reverseString(str) {
+     let result = "";
     
-    for (let elem of str) { result = elem + result; } 
+     for (let elem of str) { result = elem + result; } 
 
-    return result;
-    
-}
+     return result;
+ }
 
-console.log(reverseString("hello world!"));
+ console.log(reverseString("hello world!"));
 
-//task 5
-function checkSubString(str) {
-    return str.includes("Java") ? true : false;
-}
+ //task 5
+ function checkSubString(str) {
+     return str.includes("Java") ? true : false;
+ }
 
-console.log(checkSubString("Learning JavaScript"))
+ console.log(checkSubString("Learning JavaScript"))
 
-// task 6
-let numList = [3, 6, 9, 12];
+ // task 6
+ let numList = [3, 6, 9, 12];
 
-console.log(numList.indexOf(9));
+ console.log(numList.indexOf(9));
 
-// task 7
-let expenses = [50, 75, 100];
+ // task 7
+ let expenses = [50, 75, 100];
 
-let sum = 0;
+ let sum = 0;
 
-for (let elem of expenses) { sum += elem; }
+ for (let elem of expenses) { sum += elem; }
 
 
-console.log(sum);
+ console.log(sum);
 
-// task 8
-function checkSubStringInString(str, subStr) {
-    return str.includes(subStr) ? true : false;
-}
+ // task 8
+ function checkSubStringInString(str, subStr) {
+     return str.includes(subStr) ? true : false;
+ }
 
-console.log(checkSubStringInString("hello world!", "world"));
+ console.log(checkSubStringInString("hello world!", "world"));
 
-// task 9 -> task 7
+ // task 9 -> task 7
 
-// task 10
-function evenOrOdd(num) {
-    return num % 2 === 0 ? "Even" : "Odd";
-}
+ // task 10
+ function evenOrOdd(num) {
+     return num % 2 === 0 ? "Even" : "Odd";
+ }
 
-console.log(evenOrOdd(4));
+ console.log(evenOrOdd(4));
 
-// task 11
+//  task 11
 function customTypeOf(argument) {
-    let type = typeof argument;
-
-    if (!argument && type === "object"){
-        return "null";
-    } else if (type === "undefined") { return type; }
-
-    return argument.constructor.name.toLowerCase();
+    return Object.prototype.toString.call(argument).slice(8, -1).toLowerCase();
 }
 
-console.log(customTypeOf(undefined));
+console.log(customTypeOf(null));
+
+ console.log(customTypeOf(undefined));
 
 // task 12
 function isTrue(arg) {
@@ -120,10 +115,12 @@ console.log(convertToBolean(undefined));
 
 // task 17
 function isObject(arg) {
-    return arg.constructor.name === "Object" ? true : false;
+    if (arg === null || arg === undefined) { return false; }
+
+    return Object.getPrototypeOf(arg) === Object.prototype;
 }
 
-console.log(isObject({}));
+console.log(isObject(null));
 
 //task 18
 function isPrimitive(arg) {
